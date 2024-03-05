@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite uma string a seguir para inverter: ");
+        String original = scanner.nextLine();
+
+        String invertida = inverterString(original);
+        System.out.println("String invertida: " + invertida);
+    }
+
+    public static String inverterString(String original) {
+        char[] caracteres = original.toCharArray();
+        int tamanho = caracteres.length;
+
+        for (int i = 0; i < tamanho / 2; i++) {
+            char temp = caracteres[i];
+            caracteres[i] = caracteres[tamanho - 1 - i];
+            caracteres[tamanho - 1 - i] = temp;
+        }
+
+        return new String(caracteres);
+    }
+}
